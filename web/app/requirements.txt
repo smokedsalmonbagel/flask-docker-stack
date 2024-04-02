@@ -1,0 +1,5 @@
+Flask
+flask-session
+pymysql
+python-cas
+cryptography

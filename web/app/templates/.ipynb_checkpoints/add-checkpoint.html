@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br>
+
+            <div>
+                <form method="POST" action="/manage_user?action=new">
+                    Name:<br>
+                    <input type="text" name="Name" required/>
+                    <br>
+
+                    Username:<br>
+                    <input type="text" size="20" name="Username" placeholder="Your Clarkson Username" required/>
+                    <br>
+
+                    Semester<br>
+                    <input type="text" name="Semester" required/>
+                    <br>
+
+                    Password:<br>
+                    <input type="password" id="password" name="password" required>
+                    <br><br>
+                    Confirm Password:<br>
+                    <input type="password" id="confirm_password" name="confirm_password" required>
+                    <br><br>
+                    <label for="show_password">
+                        <input type="checkbox" id="show_password"> Show Password
+                    </label>
+                    <br><br>
+                    <button type="submit" id="submit">Submit</button>
+                    <button type="reset" value="Reset">Reset</button>
+                    
+                    
+                    </form>
+                    
+                    <script>
+                        const showPasswordCheckbox = document.getElementById('show_password');
+                        const passwordInput = document.getElementById('password');
+                        const confirmPasswordInput = document.getElementById('confirm_password');
+
+                        showPasswordCheckbox.addEventListener('change', function () {
+                            const showPassword = showPasswordCheckbox.checked;
+                            if (showPassword) {
+                                passwordInput.type = 'text';
+                                confirmPasswordInput.type = 'text';
+                            } else {
+                                passwordInput.type = 'password';
+                                confirmPasswordInput.type = 'password';
+                            }
+                        });
+                    </script>
+                </form>
+            </div>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br>
+
+            <div>
+                <form method="POST" action="/manage_user?action=update">
+                    Name:<br>
+                    <input type="text" name="Name" value= "{{user.data[0].Name}}" required />
+                    <br>
+
+                    Username:<br>
+                    <input type="text" size="20" name="Username" value= "{{user.data[0].Username}}" readonly/>
+                    <br>
+
+                    Semester<br>
+                    <input type="text" name="Semester" value= "{{user.data[0].Semester}}"/>
+                    <br>
+
+                    Role<br>
+                    <select name="Role" value="{{user.data[0].Role}}">
+                        <option value="Student">Student</option>
+                        <option value="Teacher">Teacher</option>
+                    </select>
+
+                    <br>
+                    <br>
+                    <button type = "submit" id=submit> Submit</button>  
+  
+                    <button type = "reset" value = "Reset" >Reset</button>  
+
+                </form>
+            </div>
+{% endblock %}
