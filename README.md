@@ -14,12 +14,14 @@ Other features:
 
 ### Configuring
 
-1. Change \*\*mydomain.com\*\* to your domain name. In `ssl/conf.d/base.conf`
-2. Set you AWS id and key in `ssl/aws/credentials` 
-3. Add your flask app to `web/app`.  (Entry point is `app.py`)
-4. Add any Python dependencies to `web/app/requirements.txt`
-5. `docker compose build` from the flask-docker-stack directory
-6. `docker compose up`
+1. Change \*\*mydomain.com\*\* to your domain name in `ssl/conf.d/base.conf`
+2. Change \*\*mydomain.com\*\* to your domain name in `docker-compose.yml` for `PMA_ABSOLUTE_URI`
+3. Set the CERTBOT_EMAIL ENV var in `docker-compose.yml` 
+4. Set you AWS id and key in `ssl/aws/credentials` 
+5. Add your flask app to `web/app`.  (Entry point is `app.py`)
+6. Add any Python dependencies to `web/app/requirements.txt`
+7. `docker compose build` from the flask-docker-stack directory
+8. `docker compose up`
 
 ### Deploying
 
