@@ -30,23 +30,6 @@ def index():
 
 
 
-def checkSession(role=None):
-    if 'active' in session.keys():
-        timeSinceAct = time.time() - session['active']
-
-        if timeSinceAct > 5000:
-            session['msg'] = 'Your session has timed out.'
-            return False
-        else:
-            session['active'] = time.time()
-            if role is not None:
-                if role == session['user']['Role']:
-                    return True
-                else:
-                    return False
-            return True 
-    else:
-        return False  
 
 # endpoint route for static files
 @app.route('/static/<path:path>')

@@ -12,7 +12,7 @@ services:
         - "3306:3306"
       volumes:
         - ./data/mysql:/var/lib/mysql
-        - ./docker/mysql/conf.d:/etc/mysql/conf.d
+        - ./mysql/conf.d:/etc/mysql/conf.d
       environment:
         - MYSQL_ROOT_PASSWORD=my.password
     phpmyadmin:
@@ -26,7 +26,7 @@ services:
           UPLOAD_LIMIT: 20M
         restart: always
         volumes:
-        - ./docker/pma/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php
+        - ./pma/config.user.inc.php:/etc/phpmyadmin/config.user.inc.php
     web:
         build:  ./web
         container_name: web
@@ -48,5 +48,5 @@ services:
             CERTBOT_EMAIL: some_email@a.com
             DEBUG: 1
         volumes:
-        - ./docker/ssl/conf.d:/etc/nginx/user_conf.d:ro
+        - ./ssl/conf.d:/etc/nginx/user_conf.d:ro
         - letsencrypt:/etc/letsencrypt
